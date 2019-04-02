@@ -12,7 +12,7 @@ public class test implements JComponent{
         int ligne = d.read();
         System.out.println(ligne);/* sors 49 a la place de 148*/
 
-	    int[] tab = new int[8];
+	    int[] tab = new int[8];/*multi dim pour [i][j]*/
 	    int i,et;
 
 	    for(i= 0, et = 128 ; et != 0 ; i ++ ,et=et/2){
@@ -39,8 +39,8 @@ public class test implements JComponent{
 		secondPinceau.setColor(Color.white);
 		secondPinceau.fillRect(0,0,100,100);
 
-		for(int j = 0 ; i<8 ;i++){
-			if(tab[j]==0){
+		for(int j = 0 ; i<8 ;i++){ *//*double boucle ? */
+			/*if(tab[j]==0){
 				secondPinceau.setColor(Color.white);
 				secondPinceau.fillRect(0,0,10,10);
 			}else{
