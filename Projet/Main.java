@@ -1,4 +1,4 @@
-    import javax.swing.*;
+import javax.swing.*;
     import java.awt.*;
     import java.awt.event.*;
     import java.io.*;
@@ -6,8 +6,8 @@
              
       public class Main {
         public static void main(String[] args){
-          	JFrame fenetre = new JFrame();
-          	fenetre.setSize(500,500);
+                JFrame fenetre = new JFrame();
+                fenetre.setSize(200,200);
             fenetre.setLocation(100, 100);
             fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -29,8 +29,9 @@
                
                 int[] tab = new int[16];
                 int i=0,et;
+                double[] ava = new double[image.available()];
 
-                for( int j = 0 ; j < 2 ; j++){
+                for( double j = 0 ; j < ava.length ; j++){
                   
                     int l1 = image.read();
 
@@ -46,7 +47,10 @@
                       i++;
                     }
                 }
+
                 System.out.println(Arrays.toString(details));
+                System.out.println(Arrays.toString(tab));
+
 
                 Fenetre fen = new Fenetre(tab, details);
                 fenetre.add(fen);
@@ -55,8 +59,8 @@
               System.err.println("Probleme de lecture");
             }
 
-          	
-          	fenetre.setVisible(true);
-          
+                
+                fenetre.setVisible(true);
+            
         }
-      }
+}
