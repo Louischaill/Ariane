@@ -88,7 +88,8 @@
                 if(gx>(taille+3)*40 && gx<(taille+4)*40 && gy>((taille/2)-1)*40 && gy<(taille/2)*40 && nbrS==1 && nbrE== 1){
                   /*  System.out.println(sauvx);
                     System.out.println(sauvy);*/
-                    CopieGrille alg = new CopieGrille(/*fen,*/tab,sauvx,sauvy,taille);
+                  /*  CopieGrille alg = new CopieGrille(tab,sauvx,sauvy,taille);*/
+                    FenManAuto choixalg = new FenManAuto(tab,sauvx,sauvy,taille);
                     fen.dispose();
                 }
                 

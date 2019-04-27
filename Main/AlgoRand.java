@@ -7,12 +7,12 @@ import java.lang.Math;
 
     public class AlgoRand {
 
-    	private GrilleCrea e;
+
     	private int res=0;
 
-		public AlgoRand(GrilleCrea e,int[] tab , int sauvx, int sauvy, int taille){
+		public AlgoRand(int[] tab , int sauvx, int sauvy, int taille){
 		/*	System.out.println("Finis");*/
-			this.e=e;
+
 			Random random = new Random();
 			int nb,i;
 			int fin=0;
@@ -114,6 +114,7 @@ import java.lang.Math;
 	    }
 	    compteur=compteur+1;
 	    System.out.println("Vous avez finis en "+compteur+" coups");
-	   
+	    CopieGrille cop = new CopieGrille(compteur,taille);
+
 	}
 }
