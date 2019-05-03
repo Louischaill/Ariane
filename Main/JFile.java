@@ -19,9 +19,11 @@ import java.util.*;
                 System.out.println("You chose to open this file: " + chooser.getSelectedFile().getName());
                 String fichier = chooser.getSelectedFile().getName();
                 this.add(chooser);
-              
+             
                 System.out.println(fichier);
                 Lecture tst = new Lecture(fichier);
+           
+
             }
         }
     }

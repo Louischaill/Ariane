@@ -4,15 +4,15 @@
     import java.io.*;
     import java.util.*;
           
-    public class Lecture extends JFrame {
-
+    public class Lecture  {
+        private int sauvx,taille,sauvy;
         public Lecture(String f) {
         
             System.out.println(f);
             
-            this.setSize(500,500);
+            /*this.setSize(500,500);
             this.setLocation(100, 100);
-            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
             
             try {
                 FileInputStream image = new FileInputStream(f);           
@@ -52,13 +52,26 @@
                     }
                 }
 
+               System.out.println(Arrays.toString(details));
+                System.out.println(Arrays.toString(tab));
+                taille = details[0];
+                System.out.println("taille = " + taille);
+                sauvx=details[2]*taille+details[1];
+                tab[sauvx]=2;
+                System.out.println("sauvx : " +sauvx);
+                sauvy=details[4]*taille+details[3];
+                tab[sauvy]=3;
+                System.out.println("sauvy : "+sauvy);
+
                 System.out.println(Arrays.toString(details));
                 System.out.println(Arrays.toString(tab));
-                Fenetre2 fen = new Fenetre2(tab, details);
-                this.add(fen);
 
-                this.setVisible(true);
-                    
+                GrilleTest fen = new GrilleTest(tab,taille,sauvx,sauvy);
+                /*this.add(fen);
+
+                this.setVisible(true);*/
+                
+
             }catch(IOException e){
               System.err.println("Probleme de lecture");
             }

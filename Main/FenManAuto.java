@@ -36,11 +36,12 @@
 
      			public void actionPerformed(ActionEvent arg0) {
     	            if(arg0.getSource() == bouton1){
+                       
+                        Manuel algMan = new Manuel(tab,taille);
                         this.dispose();
-
     	        	}
                     if(arg0.getSource() == bouton2){
-                        AlgoRand alg = new AlgoRand(tab,sauvx,sauvy,taille);
+                        AlgoRand algAuto = new AlgoRand(tab,sauvx,sauvy,taille);
                         this.dispose();
                         
 

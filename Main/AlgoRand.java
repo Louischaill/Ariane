@@ -7,112 +7,124 @@ import java.lang.Math;
 
     public class AlgoRand {
 
-
-    	private int res=0;
+    	private int[] tab;
+    	private int res=0,sauvx,posx;
 
 		public AlgoRand(int[] tab , int sauvx, int sauvy, int taille){
-		/*	System.out.println("Finis");*/
+		
 
 			Random random = new Random();
-			int nb,i;
+			int[] sauvtab = new int[taille*taille];
+			int nb, i;
 			int fin=0;
 			int compteur=0;
+			int valAdiviser = 0;
+			this.tab=tab;
+			this.sauvx=sauvx;
 
-		for( i = 0 ; fin != 8; i++){
-			nb = random.nextInt(4);
+			posx=sauvx;
+			/*System.out.println("posx : " + posx);*/
 
-			if(nb==0){
-				System.out.println("haut");
-     	 			
-	     		if((sauvx%taille) != 0 ){
-	     			if(tab[sauvx-1]==3){
-		   				System.out.println("FInis");
-		   				tab[sauvx]=0;
-	     				fin=8;
+		for(int moyenne =0 ; moyenne<100; moyenne++){
+			/*System.out.println("moyenne = " + moyenne);*/
+			fin =0;
+			sauvx=posx;
+			tab[sauvx]=2;
+
+			/*System.out.println("sauvx position : " +sauvx);*/
+
+			for( i = 0 ; fin != 8; i++){
+
+				nb = random.nextInt(4);
+				/*compteur++;*/
+
+
+				if(nb==0){
+	     	 		compteur++;
+		     		if((sauvx%taille) != 0 ){
+		     			if(tab[sauvx-1]==3){
+			   			
+			   				tab[sauvx]=0;
+		     				fin=8;
+		     			
+
+			     		}
+		     			if(tab[sauvx-1]==0 ){
+		    				int res = sauvx-1;
+		    				tab[res]=tab[sauvx];
+			     			tab[sauvx]=0;
+			     			sauvx=res;
+			     			/*System.out.println("sauvx : " +sauvx);*/
+			     			
+						}
+						     				
 		     		}
-	     			if(tab[sauvx-1]==0 ){
-		  				System.out.println("possible haut");
-	    				int res = sauvx-1;
-	    				tab[res]=tab[sauvx];
-		     			tab[sauvx]=0;
-		     			sauvx=res;
-		     			compteur++;
-					}	     				
-	     		}
-	     	}
-			
+		     	
+		     	}
+				
 
-			if(nb==1){
-				System.out.println("bas");
-     	 		
-	     			if((sauvx%taille) != (taille-1)){
-	     				System.out.println("test");
-	     				if(tab[sauvx+1]==3){
-		     				System.out.println("FInis");
-		     				tab[sauvx]=0;
-		     				fin=8;
+				if(nb==1){
+	     	 		compteur++;
+		     			if((sauvx%taille) != (taille-1)){
+		     				if(tab[sauvx+1]==3){
+			     				tab[sauvx]=0;
+			     				fin=8;
+			     	
+			     			}
+		     				if(tab[sauvx+1]==0){
+			     				int res = sauvx + 1;
+			     				tab[res]=tab[sauvx];
+			     				tab[sauvx]=0;
+			     				sauvx=res;
+			     			/*	System.out.println("sauvx : " +sauvx);*/
+		     				}		     							     			
+		     			}			
+		     	}
+				
+				if(nb==2){
+					compteur++;
+		     			if(sauvx > taille-1 ){
+		     				
+		     				if(tab[sauvx-taille]==3){
+			     				tab[sauvx]=0;
+			     				fin=8;
+			     				
+			     			}
+		     				if(tab[sauvx-taille]==0 ){
+			     				int res=sauvx-taille;
+			     				tab[res]=tab[sauvx];
+			     				tab[sauvx]=0;
+			     				sauvx=res;
+			     				/*System.out.println("sauvx : " +sauvx);*/
+		     				}
+		     				     			
+		     				
 		     			}
-	     				if(tab[sauvx+1]==0){
-		     				System.out.println("possible bas");
-		     				int res = sauvx + 1;
-		     				tab[res]=tab[sauvx];
-		     				tab[sauvx]=0;
-		     				sauvx=res;
-		     				compteur++;
-	     				}
+		     		
+				}
+				if(nb==3){
+					compteur++;
+		     		if(sauvx<(taille*(taille-1))){
+		     			if( tab[sauvx+taille]==3){
+			     			tab[sauvx]=0;
+			     			fin=8;
+			 
 
-	     				
-	     			
-	     		}
-	     	}
-			
-			if(nb==2){
-				System.out.println("gauche");
+			     		}
+		     			if(tab[sauvx+taille]==0 ){
+			     			int res=sauvx+taille;
+			     			tab[res]=tab[sauvx];
+			     			tab[sauvx]=0;
+		    				sauvx=res;
+			  			/*	System.out.println("sauvx : " +sauvx);*/
 
-	     			if(sauvx > taille-1 ){
-	     				System.out.println(sauvx);
-	     				System.out.println("test");
-	     				if(tab[sauvx-taille]==3){
-		     				System.out.println("FInis");
-		     				tab[sauvx]=0;
-		     				fin=8;
-		     			}
-	     				if(tab[sauvx-taille]==0 ){
-		     				System.out.println("possible gauche");
-		     				int res=sauvx-taille;
-		     				tab[res]=tab[sauvx];
-		     				tab[sauvx]=0;
-		     				sauvx=res;
-		     				compteur++;
-	     				}
-	     				     			
-	     				
-	     			}
-	     		
-			}
-			if(nb==3){
-				System.out.println("droite");
-	     			if(sauvx<(taille*(taille-1))){
-	     				if( tab[sauvx+taille]==3){
-		     				System.out.println("FInis");
-		     				tab[sauvx]=0;
-		     				fin=8;
-		     			}
-	     				if(tab[sauvx+taille]==0 ){
-		     				System.out.println("possible droite");
-		     				int res=sauvx+taille;
-		     				tab[res]=tab[sauvx];
-		     				tab[sauvx]=0;
-		     				sauvx=res;
-		     				compteur++;
-	     				}
-	     				
-	     			}
-	     		}
-			
-
-	    }
-	    compteur=compteur+1;
+		     			}		     			
+		     		}		     		
+		   		}						     		
+		    }
+		}
+		System.out.println(compteur);
+		compteur=compteur/100;
 	    System.out.println("Vous avez finis en "+compteur+" coups");
 	    CopieGrille cop = new CopieGrille(compteur,taille);
 

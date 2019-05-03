@@ -4,8 +4,8 @@
         import java.io.*;
         import java.util.*;
     public class FenCrea extends JFrame implements ActionListener{
-        	private JButton bouton1 = new JButton("Algo 1");
-            private JButton bouton2 = new JButton("Algo 2");
+        	private JButton bouton1 = new JButton("A.Aleatoire");
+            private JButton bouton2 = new JButton("A.Deterministe");
             private JTextField area = new JTextField();
         	private GridLayout gestionnaire = new GridLayout(1, 3);
         	private JPanel container = new JPanel();
