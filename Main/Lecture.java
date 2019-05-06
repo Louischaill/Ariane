@@ -10,9 +10,6 @@
         
             System.out.println(f);
             
-            /*this.setSize(500,500);
-            this.setLocation(100, 100);
-            this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
             
             try {
                 FileInputStream image = new FileInputStream(f);           
@@ -27,10 +24,10 @@
                 int[] tab = new int[taille];
                 int i=0,et;
                 int s=1;
-                double[] ava = new double[image.available()/8];
-
-                int dispo = image.available();
                 int cmp = 0;
+
+                double[] ava = new double[image.available()/8];
+                int dispo = image.available();
 
                 for( int j = 0 ; j < dispo ; j++){
                       
@@ -52,24 +49,27 @@
                     }
                 }
 
-               System.out.println(Arrays.toString(details));
-                System.out.println(Arrays.toString(tab));
-                taille = details[0];
+            /*   System.out.println(Arrays.toString(details));
+                System.out.println(Arrays.toString(tab));*/
+
+               taille = details[0];
+
                 System.out.println("taille = " + taille);
-                sauvx=details[2]*taille+details[1];
+                sauvx=details[1]*taille+details[2];
                 tab[sauvx]=2;
+
                 System.out.println("sauvx : " +sauvx);
-                sauvy=details[4]*taille+details[3];
+                sauvy=details[3]*taille+details[4];
                 tab[sauvy]=3;
+
                 System.out.println("sauvy : "+sauvy);
 
                 System.out.println(Arrays.toString(details));
                 System.out.println(Arrays.toString(tab));
 
                 GrilleTest fen = new GrilleTest(tab,taille,sauvx,sauvy);
-                /*this.add(fen);
 
-                this.setVisible(true);*/
+
                 
 
             }catch(IOException e){

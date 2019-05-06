@@ -48,18 +48,25 @@
                 int gy = e.getY();
 
                 if(clique<0 && (nbrE==1 || nbrS==1)){
+                    
                     if(clique==-1 && nbrE == 1){
                         if(gx<taille*40 && gy<taille*40){
                             x=(e.getX()/40)+1;
                             y=(e.getY()/40)+1;
-
                             res = ((x-1)*taille+(y-1));
-                            sauvx=res;
-
-                            this.e.entree(res);
-                            this.e.repaint();
-
-                            clique=1;
+                            
+                            if(tab[res]==1){
+                                sauvx=res;
+                                this.e.entree(res);
+                                this.e.repaint();
+                                clique=1;
+                                nbrE=0;
+                            }else{
+                                this.e.entree(res);
+                                sauvx=res;
+                                this.e.repaint();
+                                clique=1; 
+                            }
                             
                         }
                     }
@@ -68,10 +75,32 @@
                             x=(e.getX()/40)+1;
                             y=(e.getY()/40)+1;
                             res = ((x-1)*taille+(y-1));
+                            if(tab[res]==1){
+                                this.e.sortie(res);
+                                sauvy=res;
+                                this.e.repaint();
+                                clique=1;    
+                                nbrS=0;  
+                            }else{
+                                this.e.sortie(res);
+                                sauvy=res;
+                                this.e.repaint();
+                                clique=1; 
+                            }                          
+
+                        }
+                    }
+
+                    if(clique==-1 && nbrS == 1){
+                        if(gx<taille*40 && gy<taille*40){
+                            x=(e.getX()/40)+1;
+                            y=(e.getY()/40)+1;
+                            res = ((x-1)*taille+(y-1));
                             this.e.sortie(res);
                             sauvy=res;
                             this.e.repaint();
-                            clique=1;                           
+                            clique=1; 
+                            nbrS=0;                          
 
                         }
                     }
@@ -83,7 +112,6 @@
                         if(res==sauvx){
                             System.out.println("changement");
                             nbrE=0;                      
-                        
                         }else{
                             if(res==sauvy){
                                 nbrS=0;
@@ -127,10 +155,11 @@
                     }
                     if(nbrS==0 && nbrE ==1){
                         nbrE=0;
-                    }
-                
-                    
+                    }     
                  
+                }
+                if(gx>(taille+6)*40 && gx<(taille+7)*40 && gy>((taille/2)-1)*40 && gy<(taille/2)*40 && nbrS==1 && nbrE== 1 ){
+                    VueDossier ecriture = new VueDossier(tab,sauvx,sauvy,taille);
                 }
                 
             }
