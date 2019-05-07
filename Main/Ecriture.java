@@ -65,21 +65,26 @@ import java.util.*;
                         y=y+8;
 
                     }
-                    for(int d = 0 ; d==-1;i++){
-                        for( int complement = 0 ; complement < capacite % 8 ; complement ++){
+                if(capacite % 8 != 0){
+                    for( int complement = 0 ; complement < capacite % 8 ; complement ++){
 
-                                if(tab[fin+complement]==1){
-                                    ec = ec + "1";
-                                }else{
-                                    ec = ec + "0";
-
-                                }
+                        if(tab[fin+complement]==1){
+                            ec = ec + "1";
+                        }else{
+                            ec = ec + "0";
                         }
-                        System.out.println(ec);
-                        ecriture.write(Integer.parseInt(ec,2));
-                        ec="";
-                        d=-1;
+                    }   
+                    System.out.println(8-(capacite%8));
+
+                    for(int z = 0 ; z < 8-(capacite%8);z++){
+                        ec = ec + "1";
                     }
+                    System.out.println("ec = "+ec);
+                    int ecr = Integer.parseInt(ec,2);
+                    System.out.println(ecr);
+                    ec="";
+
+                }
                     
                     ecriture.close();
                 } catch (FileNotFoundException e){
