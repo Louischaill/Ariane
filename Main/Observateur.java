@@ -9,16 +9,18 @@
         		private int taille;
     	        private int x,y;
     	        private GrilleCrea e;
-    	        private int res,clique,clique1;
+    	        private int res,clique,clique1,choix;
                 private int nbrE=0,nbrS=0,sauvx,sauvy,posx,posy;
                 private int[] tab;
                 private JFrame fen;
 
-        	public Observateur(GrilleCrea e,JFrame fen, int taille,int[] tab ){
+        	public Observateur(GrilleCrea e,JFrame fen, int taille,int[] tab , int choix ){
         		this.e=e;
         		this.taille=taille;
                 this.tab=tab;
                 this.fen=fen;
+                this.choix=choix;
+                System.out.println("choix :"+choix);
         	}
             public Observateur(GrilleCrea e,JFrame fen, int taille,int[] tab , int posx, int posy){
                 this.e=e;
@@ -27,10 +29,11 @@
                 this.fen=fen;
                 this.posx=posx;
                 this.posy=posy;
-
+                               
                 if(tab[posx]==2){
                     nbrE=1;
                     sauvx=posx;
+
                 }
                 if(tab[posy]==3){
                     nbrS=1;
@@ -43,6 +46,7 @@
             }
 
         	public void mouseClicked(MouseEvent e){
+
 
                 int gx = e.getX();
                 int gy = e.getY();
@@ -135,12 +139,21 @@
                         nbrS++;
                     }
                 }
-                if(gx>(taille+3)*40 && gx<(taille+5)*40 && gy>((taille/2)-1)*40 && gy<(taille/2)*40 && nbrS==1 && nbrE== 1){
-                  /*  System.out.println(sauvx);
-                    System.out.println(sauvy);*/
-                  /*  CopieGrille alg = new CopieGrille(tab,sauvx,sauvy,taille);*/
-                    FenManAuto choixalg = new FenManAuto(tab,sauvx,sauvy,taille);
-                    fen.dispose();
+                if(gx>(taille+3)*40 && gx<(taille+5)*40 && gy>((taille/2)-1)*40 && gy<(taille/2)*40 && nbrS==1 && nbrE== 1 ){
+
+                    System.out.println("debut");
+                    System.out.println(choix);
+                    if(choix == 1){
+                        FenManAuto choixalg = new FenManAuto(tab,sauvx,sauvy,taille);
+                        fen.dispose();
+                    }
+                    if(choix == 2){
+                       AlgoDeterministe deter = new AlgoDeterministe(tab ,sauvx,sauvy,taille);
+                       fen.dispose();
+                    }
+                    if(choix == 3){
+                        System.out.println("choixAlgo");
+                    }
                 }
                 if(gx>(taille+5)*40 && gx<(taille+6)*40 && gy>((taille/2)-1)*40 && gy<(taille/2)*40 ){
                     this.e.aleatoire();

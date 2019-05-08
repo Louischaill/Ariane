@@ -9,10 +9,11 @@
             private int[] details;
             private int taille;
             private int posx,posy;
-            private int res;
+            private int res,choix;
 
-            public GrilleTest(int taille){
+            public GrilleTest(int taille,int choix){
                 this.taille=taille;
+                this.choix= choix;
                 this.setSize((taille*40)*2+30,(taille*40)+32);
                 this.setLocation(100, 100);
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -20,7 +21,7 @@
             
                 int[] tab = new int[taille*taille];
                 GrilleCrea crea = new GrilleCrea(tab,taille,1);
-                Observateur obs = new Observateur(crea,this,taille,tab);
+                Observateur obs = new Observateur(crea,this,taille,tab,choix);
                 crea.addMouseListener(obs);
 
 
@@ -37,13 +38,11 @@
                 this.setSize((taille*40)*2+30,(taille*40)+32);
                 this.setLocation(100, 100);
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+                System.out.println("loulou");
+                
                 GrilleCrea crea = new GrilleCrea(tab,taille,1);
                 Observateur obs = new Observateur(crea,this,taille,tab,posx,posy);
                 crea.addMouseListener(obs);
-
-
-                this.add(crea);
                 
                 this.setVisible(true);
             }

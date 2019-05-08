@@ -38,14 +38,13 @@
     	            if(arg0.getSource() == bouton1){
 
 
-                        GrilleTest grille = new GrilleTest(taille);
-    	            	System.out.println(taille);
+                        GrilleTest grille = new GrilleTest(taille,1);
                         this.dispose();
 
     	        	}
                     if(arg0.getSource() == bouton2){
 
-                        JFile test = new JFile();
+                        GrilleTest grille = new GrilleTest(taille,2);
                         this.dispose();
                         
 

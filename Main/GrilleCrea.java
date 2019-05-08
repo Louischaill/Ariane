@@ -75,22 +75,7 @@
                     nb = random.nextInt(2);
                     tab[i]=nb;
                 }
-                /*int e, s , fin = 0;
 
-                for(int j= 0 ; fin != -1 ; j++){
-                    e = random.nextInt(100);
-                    if(tab[e]==0){
-                        tab[e]=2;
-                        fin=-1;
-                    }
-                }
-                for(int x= 0 ; fin != -2 ; x++){
-                    s = random.nextInt(100);
-                    if(tab[s]==0){
-                        tab[s]=3;
-                        fin=-2;
-                    }
-                }*/
                 
             }
             public void manuel0(int sauvx, int direction){
