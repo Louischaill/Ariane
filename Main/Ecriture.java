@@ -5,8 +5,8 @@ import java.io.*;
 import java.util.*;
               
         public class Ecriture {
-    	
-           	private int[] tab = null;
+        
+            private int[] tab = null;
             private int sauvx,taille,sauvy,cmp,i,et;
             private String ec="";
             private String dossier;
@@ -97,5 +97,4 @@ import java.util.*;
 
 
 
-            }
-        
+}

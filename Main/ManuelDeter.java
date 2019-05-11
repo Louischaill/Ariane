@@ -4,12 +4,12 @@ import javax.swing.*;
         import java.io.*;
         import java.util.*;
 
-        public class Manuel extends JFrame{
+        public class ManuelDeter extends JFrame{
             private int[] tab;
             private int taille;
             private int sauvx,sauvy;
 
-            public Manuel(int[] tab, int taille){
+            public ManuelDeter(int[] tab, int taille){
                 this.taille=taille;
                 this.sauvx=sauvx;
                 this.sauvy=sauvy;
@@ -19,7 +19,7 @@ import javax.swing.*;
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
                 GrilleCrea crea = new GrilleCrea(tab,taille,0);
-                Observateur2 obs = new Observateur2(crea,this,taille,tab);
+                Observateur3 obs = new Observateur3(crea,this,taille,analyse );
                 this.addKeyListener(obs);
 
                 this.add(crea);

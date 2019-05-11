@@ -10,16 +10,16 @@ public class VueDossier extends JFrame implements ActionListener{
       private JTextField champ = new JTextField();  
       private JPanel panneau = new JPanel();
       private JPanel panneau2 = new JPanel();
-      private JLabel texte = new JLabel("Créer le dossier : ");
+      private JLabel texte = new JLabel("Creer le dossier : ");
       private String nomDossier;
-      private int x,y,grandeur;
+      private int sauvx,sauvy,taille;
       private int[] tab;
 
 
       public VueDossier(int[] tableau,int sauvx,int sauvy,int taille){
-          this.x=sauvx;
-          this.y=sauvy;
-          this.grandeur=taille;
+          this.sauvx=sauvx;
+          this.sauvy=sauvy;
+          this.taille=taille;
           this.tab=tableau;   
 
           this.setSize(400, 250);
@@ -56,15 +56,15 @@ public class VueDossier extends JFrame implements ActionListener{
                   
                   if(!verif.equals("lab")){ 
                       this.champ.setText("");
-                      System.out.println("erreur l'extension doit être .lab");
+                      System.out.println("erreur l'extension doit etre .lab");
                   }else{
-                      Sauvegarde(dossier,tab,x,y,grandeur);
+                      Ecriture e = new Ecriture(dossier,tab,sauvx,sauvy,taille);
                       this.setVisible(false);                                
                   }       
                       
               }else{
                   this.champ.setText("");
-                  System.out.println("erreur l'extension doit être .lab");
+                  System.out.println("erreur l'extension doit etre .lab");
               }
           }
                     
@@ -73,28 +73,27 @@ public class VueDossier extends JFrame implements ActionListener{
               this.setVisible(false);                        
           }
       }
-      
-      public void Sauvegarde(String string,int[] tab,int sauvx,int sauvy,int taille){
+       public void Sauvegarde(String string,int[] tab,int sauvx,int sauvy,int taille){
+            this.nomDossier = string;
+            this.sauvx=sauvx;
+            this.sauvy=sauvy;
+            this.taille=taille;
+            this.tab=tab;
+            try {
+            File fichier = new File(System.getProperty("user.dir")+File.separator+"sauvegarde"+File.separator+nomDossier);
             
-          this.nomDossier = string;
-          this.x=sauvx;
-          this.y=sauvy;
-          this.grandeur=taille;
-          this.tab=tab;
-          
-          try {
-              File fichier = new File(System.getProperty("user.dir")+File.separator+"sauvegarde"+File.separator+nomDossier);
-              
-              if(!fichier.exists()){
-                  System.out.println("Creation du fichier effectué avec succès");
-              }else{
-                  System.out.println("Le fichier existe déjà ,les valeurs sont écrasées automatiquement");
-              } 
-              BufferedWriter writer = new BufferedWriter(new FileWriter(fichier));
-              writer.close();
-              Ecriture sauv = new Ecriture(nomDossier,tab,x,y,taille);           
-          }catch (IOException e){
-              System.out.println("Erreur");
+            if(!fichier.exists()){
+               System.out.println("Creation du fichier effectuee avec succes");
+            }else{
+              System.out.println("Le fichier existe deja,les valeurs sont ecrasees automatiquement");
+            } 
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fichier));
+            writer.close();
+            Ecriture sauv = new Ecriture(nomDossier,tab,sauvx,sauvy,taille);           
+            }catch (IOException e){
+                System.out.println("Erreur");
+            }
           }
-      }
+     
+      
 }

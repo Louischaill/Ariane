@@ -6,32 +6,34 @@ import java.util.*;
 import java.lang.Math; 
 
     public class AlgoDeterministe {
-    	private int[] ts=null;
-    	private int[] ti=null;
+        private int[] ts=null;
+        private int[] ti=null;
         private int[] reconstruction=null;
-    	private int sauvx,sauvy,taille,fin=0,sauvegardedirection=0;
-    	private int casedei=0,cmp=0,resultat,directmp=0,i=1,posx;
-    	private Analyse e;
+        private int sauvx,sauvy,taille,fin=0,sauvegardedirection=0;
+        private int casedei=0,cmp=0,resultat,directmp=0,i=1,posx;
+        private Analyse e;
 
-    	public AlgoDeterministe(Analyse e, int sauvx, int sauvy, int taille){
-    		this.sauvx=sauvx;
-    		this.sauvy=sauvy;
-    		this.taille=taille;
-    		this.e=e;
-    		
-    		int[] ts = new int[taille*taille];
-    		int[] ti = new int[taille*taille];
+        public AlgoDeterMan(Analyse e, int sauvx, int sauvy, int taille){
+            this.sauvx=sauvx;
+            this.sauvy=sauvy;
+            this.taille=taille;
+            this.e=e;
+            
+            int[] ts = new int[taille*taille];
+            int[] ti = new int[taille*taille];
             int[] reconstruction= new int[taille*taille];
             int[] directs = new int[taille*taille];
-    		  						
+                                    
             posx=sauvx;
 
-    		int s=0;
+            int s=0;
             int res=0;
             int compteur=0;
             reconstruction[sauvx]=sauvx;
+        }
+        public int AlgoDman( int sauvx, int sauvy, int taille){
 
-            for(int i = 0 ; i!=-1 ; i++){
+
                 compteur++;
               /*  System.out.println(Arrays.toString(ts));*/
             /*     System.out.println("sauvx : "+sauvx);
@@ -39,16 +41,16 @@ import java.lang.Math;
                 System.out.println("s : "+ s);
                /*  System.out.println("direct "+directmp);*/
 
-    			if(sauvx%taille != 0 && reconstruction[sauvx-1]!=1 && ts[sauvx-1]!=4 && directmp !=1 && s<1 ){
+                if(sauvx%taille != 0 && reconstruction[sauvx-1]!=1 && ts[sauvx-1]!=4 && directmp !=1 && s<1 ){
                     if(ts[sauvx-1]!=0){
                         s=1;
                         
                     }else{
-        				if( this.e.AnalyseTab(sauvx,1) == 1){
-        					System.out.println("mur");  
+                        if( this.e.AnalyseTab(sauvx,1) == 1){
+                            System.out.println("mur");  
                             reconstruction[sauvx-1]=1;
                             s=1;   
-        				}else{
+                        }else{
                             if( this.e.AnalyseTab(sauvx,1) == 2){
                             /*    System.out.println("direction 1");*/
                                 ts[sauvx]=1;
@@ -229,10 +231,11 @@ import java.lang.Math;
                         }
                     }
                 }
-            }
+            
+
             System.out.println("vous avez termine en : "+compteur+ "coups");
            /* CopieGrille cop = new CopieGrille(compteur,taille);*/
         }
 
-	}
+    }
     

@@ -75,7 +75,22 @@
                     nb = random.nextInt(2);
                     tab[i]=nb;
                 }
+                /*int e, s , fin = 0;
 
+                for(int j= 0 ; fin != -1 ; j++){
+                    e = random.nextInt(100);
+                    if(tab[e]==0){
+                        tab[e]=2;
+                        fin=-1;
+                    }
+                }
+                for(int x= 0 ; fin != -2 ; x++){
+                    s = random.nextInt(100);
+                    if(tab[s]==0){
+                        tab[s]=3;
+                        fin=-2;
+                    }
+                }*/
                 
             }
             public void manuel0(int sauvx, int direction){
@@ -245,22 +260,20 @@
                     secondPinceau.fillRect((taille+2)*40,((taille-2)*40)/2,40,40);
                     secondPinceau.setColor(Color.black);
                     secondPinceau.drawRect((taille+2)*40,((taille-2)*40)/2,40,40);
+
+                    secondPinceau.setColor(Color.blue);
+                    secondPinceau.fillRect((taille+3)*40 +80,((taille-2)*40)/2,40,40);
+                    secondPinceau.setColor(Color.black);
+                    secondPinceau.drawRect((taille+3)*40 + 80,((taille-2)*40)/2,40,40);
                     
                     secondPinceau.drawImage(imgf,((taille+3)*40), (((taille-2)*40)/2), this);
                     secondPinceau.setColor(Color.black);
                     secondPinceau.drawRect((taille+3)*40,((taille-2)*40)/2,80,40);
 
-                    secondPinceau.setColor(Color.blue);
-                    secondPinceau.fillRect((taille+5)*40 ,((taille-2)*40)/2,40,40);
-                    secondPinceau.setColor(Color.black);
-                    secondPinceau.drawRect((taille+5)*40 ,((taille-2)*40)/2,40,40);
-
                     secondPinceau.setColor(Color.orange);
-                    secondPinceau.fillRect((taille+6)*40 ,((taille-2)*40)/2,40,40);
+                    secondPinceau.fillRect((taille+4)*40 +80,((taille-2)*40)/2,40,40);
                     secondPinceau.setColor(Color.black);
-                    secondPinceau.drawRect((taille+6)*40 ,((taille-2)*40)/2,40,40);
-
-
+                    secondPinceau.drawRect((taille+4)*40 + 80,((taille-2)*40)/2,40,40);
               
 
                 }else{
@@ -273,21 +286,29 @@
                     secondPinceau.fillRect((taille+2)*40,((taille-3)*40)/2,40,40);
                     secondPinceau.setColor(Color.black);
                     secondPinceau.drawRect((taille+2)*40,((taille-3)*40)/2,40,40);
+
+                    /*secondPinceau.setColor(Color.blue);
+                    secondPinceau.fillRect((taille+3)*40,((taille-3)*40)/2,80,40);
+                    secondPinceau.setColor(Color.black);
+                    secondPinceau.drawRect((taille+3)*40,((taille-3)*40)/2,80,40); */
                     
                     secondPinceau.drawImage(imgf,(taille+3)*40, ((taille-3)*40)/2, this);
                     secondPinceau.setColor(Color.black);
-                    secondPinceau.drawRect((taille+3)*40,((taille-3)*40)/2,80,40); 
+                    secondPinceau.drawRect((taille+3)*40,((taille-3)*40)/2,80,40);
+
+                    secondPinceau.setColor(Color.BLACK);
+                    secondPinceau.setFont(new Font("",Font.BOLD,20));
+                    secondPinceau.drawString(aleatoire ,(taille*40)*2-((taille*40)/2),500); 
 
                     secondPinceau.setColor(Color.blue);
-                    secondPinceau.fillRect((taille+5)*40 ,((taille-3)*40)/2,40,40);
+                    secondPinceau.fillRect((taille+3)*40 +80,((taille-3)*40)/2,40,40);
                     secondPinceau.setColor(Color.black);
-                    secondPinceau.drawRect((taille+5)*40 ,((taille-3)*40)/2,40,40);
+                    secondPinceau.drawRect((taille+3)*40 + 80,((taille-3)*40)/2,40,40);
 
                     secondPinceau.setColor(Color.orange);
-                    secondPinceau.fillRect((taille+6)*40 ,((taille-3)*40)/2,40,40);
+                    secondPinceau.fillRect((taille+4)*40 +80,((taille-3)*40)/2,40,40);
                     secondPinceau.setColor(Color.black);
-                    secondPinceau.drawRect((taille+6)*40 ,((taille-3)*40)/2,40,40);
-
+                    secondPinceau.drawRect((taille+4)*40 + 80,((taille-3)*40)/2,40,40);
 
                 }
             }else{
