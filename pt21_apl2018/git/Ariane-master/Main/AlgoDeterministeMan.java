@@ -50,7 +50,7 @@ import java.lang.Math;
 	     		if((sauvx%taille) != 0 ){
 	     			if(tab[sauvx-1]==3){
 		   				
-		   				tab[sauvx]=0;
+		   				/*tab[sauvx]=0;*/
 		   				fen.dispose();
 		   				CopieGrille cop = new CopieGrille(compteur,taille);
 	     				

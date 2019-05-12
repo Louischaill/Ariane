@@ -117,7 +117,7 @@
                     }else{
                         if(algo==2){
                             FenDeterchoix automan = new FenDeterchoix(tab,sauvx,sauvy,taille);
-                           
+                            fen.dispose();
                         }else{
                             ChoixAlecture cal = new ChoixAlecture(tab,sauvx,sauvy,taille);
                             fen.dispose();

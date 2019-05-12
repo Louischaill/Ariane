@@ -22,7 +22,7 @@ import java.lang.Math;
     		int[] ts = new int[taille*taille];
     		int[] ti = new int[taille*taille];
             int[] reconstruction= new int[taille*taille];
-            int[] directs = new int[taille*taille*taille];
+            int[] directs = new int[taille*taille*taille*taille];
     		  						
             posx=sauvx;
 
@@ -33,11 +33,9 @@ import java.lang.Math;
 
             for(int i = 0 ; i!=-1 ; i++){
                 compteur++;
-              /*  System.out.println(Arrays.toString(ts));*/
+  
                  System.out.println("sauvx : "+sauvx);
-                /*System.out.println(cmp);*/
-              /*  System.out.println("s : "+ s);*/
-               /*  System.out.println("direct "+directmp);*/
+
 
     			if(sauvx%taille != 0 && reconstruction[sauvx-1]!=1 && ts[sauvx-1]!=4 && directmp !=1 && s<1 ){
                     if(ts[sauvx-1]!=0){
@@ -151,6 +149,7 @@ import java.lang.Math;
                                 /*System.out.println("boucle4");*/
                                 if(directmp==4){
                                     s=4;
+                                    
                                 }else{
                                     if(ts[sauvx-taille]!=0){
                                       /*  System.out.println("!="+0);*/
@@ -187,32 +186,27 @@ import java.lang.Math;
                             }else {
                                         
                                     s=4;
-                                    System.out.println("s"+s);
-                                  /*  System.out.println(posx);
-                                    System.out.println(sauvx);*/
 
                                     if(s==4 ){
-                                        System.out.println("louis");
-     
-                                        System.out.println("sauvx"+sauvx);
-                                        System.out.println("ll");
+
  
                                         if(sauvx > taille - 1 && reconstruction[sauvx-taille]==posx){
-                                             System.out.println("ll");                                         
+                                                                                      
                                             cmp=0;
                                             s=0;
                                             directmp=ts[sauvx-taille];
                                             sauvx=posx;
 
                                         }else{
-                                            System.out.println("loulou");
+                                            
                                             if(sauvx < taille*(taille-1) && reconstruction[sauvx+1]==posx){
+                                               
                                                 cmp=0;
                                                 s=0;
                                                 directmp=ts[sauvx+1];
                                                 sauvx=posx;
                                             } else{
-                                                System.out.println("louissi");
+                                               
                                                 ts[sauvx]=directs[cmp-1];
                                            
                                                 sauvx=ti[cmp-1];
