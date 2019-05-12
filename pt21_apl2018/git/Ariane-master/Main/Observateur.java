@@ -70,8 +70,9 @@
                             x=(e.getX()/40)+1;
                             y=(e.getY()/40)+1;
                             res = ((x-1)*taille+(y-1));
-                            this.e.sortie(res);
                             sauvy=res;
+                            this.e.sortie(res);
+                            
                             this.e.repaint();
                             clique=1;                           
 
@@ -83,7 +84,7 @@
                         y=(e.getY()/40)+1;
                         res = ((x-1)*taille+(y-1));
                         if(res==sauvx){
-                            System.out.println("changement");
+                            
                             nbrE=0;                      
                         
                         }else{
@@ -115,11 +116,11 @@
                         fen.dispose();
                     }else{
                         if(algo==2){
-                            Analyse analyse = new Analyse(tab ,sauvx, sauvy,taille);
-                            AlgoDeterministe ad = new AlgoDeterministe(analyse,sauvx,sauvy,taille);
-                           /* System.out.println("deter");*/
+                            FenDeterchoix automan = new FenDeterchoix(tab,sauvx,sauvy,taille);
+                           
                         }else{
-                            System.out.println("lecture");
+                            ChoixAlecture cal = new ChoixAlecture(tab,sauvx,sauvy,taille);
+                            fen.dispose();
                         }
                     }
                 }
